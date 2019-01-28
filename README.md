@@ -7,9 +7,9 @@
 4. **Instalar as dependências de pacotes.** - `npm install`.
 5. **Criar a variáveis de ambiente.** - `LOG, PORT, MAX_QUERY_LENGTH, TIMEOUT, NODE_ENV, WEATHER_URL, WEATHER_CREDENTIALS, COUNTRY_URL, CURRENCY_URL, CURRENCY_CREDENTIALS`.
 6. **Inicie a aplicação.** - `npm start`.
-7. **Testando a aplicação.** - `http://localhost:8082/`.
+7. **Testando a aplicação.** - `http://localhost:8080/graphql`.
 
-###Dependências de Produção
+### Dependências de Produção
 | **Dependency** | **Use** |
 |----------|-------|
 |os|The os module provides a number of operating system-related utility methods.|
@@ -29,7 +29,7 @@
 |graphql-server-express|Production-ready Node.js GraphQL server for Express and Connect.|
 |graphql-tools|This package provides a few useful ways to create a GraphQL schema.|
 
-###Dependências de Desenvolvimento
+### Dependências de Desenvolvimento
 | **Dependency** | **Use** |
 |----------|-------|
 |babel-plugin-module-resolver|A Babel plugin to add a new resolver for your modules when compiling your code using Babel.|
