@@ -1,4 +1,4 @@
-#Sensedia - GraphQL Engine
+# Sensedia - GraphQL Engine
 
 ## Get Started
 1. **Install [Node](https://nodejs.org)**.
