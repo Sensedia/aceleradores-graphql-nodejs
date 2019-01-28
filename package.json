@@ -1,0 +1,58 @@
+{
+  "private": true,
+  "version": "1.0.0",
+  "name": "graphql-engine",
+  "company": "Sensedia",
+  "description": "This Microservice is a GraphQL schema that resolves data from a REST API.",
+  "author": "Eduardo Cauã dos Santos",
+  "main": "index.js",
+  "keywords": [
+    "Sensedia",
+    "GraphQL"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Sensedia/aceleradores-graphql-nodejs.git"
+  },
+  "license": {
+    "type": "MIT"
+  },
+  "scripts": {
+    "start": "nodemon -e .js,.graphql --exec babel-node --presets es2015,stage-0 -- src/index.js",
+    "server": "babel-node --presets es2015,stage-0 -- src/index.js",
+    "debug": "babel-node --inspect --presets es2015,stage-0 -- src/index.js",
+    "test": "mocha --timeout 10000 --exit --require babel-core/register"
+  },
+  "engines": {
+    "node": "8.x.x"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "express-graphql": "^0.6.12",
+    "express-request-id": "^1.4.0",
+    "express-validator": "^3.0.0",
+    "fetch-wrap": "0.0.12",
+    "graphql": "0.11.3",
+    "graphql-date": "^1.0.3",
+    "graphql-iso-date": "^3.3.0",
+    "graphql-relay": "0.4.0",
+    "apollo-server-express": "1.1.7",
+    "graphql-tools": "1.2.3",
+    "https": "1.0.0",
+    "moment": "2.20.1",
+    "node-fetch": "^1.7.3",
+    "winston": "^3.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-inline-import": "^2.0.6",
+    "babel-plugin-module-resolver": "^3.0.0",
+    "babel-preset-es2015": "6.6.0",
+    "babel-preset-stage-0": "6.5.0",
+    "chai": "^4.1.2",
+    "chai-http": "^4.2.0",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.4"
+  }
+}

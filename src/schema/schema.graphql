@@ -1,0 +1,244 @@
+# A date string, such as 2007-12-03
+scalar Date
+
+# A date-time string at UTC, such as 2007-12-03T10:15:30Z
+scalar DateTime
+
+# Global identificator
+interface Node {
+  id: ID!
+}
+
+# City
+type Country {
+  # Country Name
+  name: String
+  # Country Top Level Domain
+  topLevelDomain: [String]
+  # Country Alpha 2 Code
+  alpha2Code: String
+  # Country Alpha 3 Code
+  alpha3Code: String
+  # Country Calling Codes
+  callingCodes: [String]
+  # Country Capital
+  capital: String
+  # Country Alt Spellings
+  altSpellings: [String]
+  # Country Region
+  region: String
+  # Country Sub Region
+  subregion: String
+  # Country Population
+  population: Int
+  # Country Latitude
+  lat: Float
+  # Country Longitude
+  lng: Float
+  # Country Demonymation
+  demonym: String
+  # Country Area Size
+  area: Float
+  # Country Gini
+  gini: Float
+  # Country Timezones
+  timezones: [String]
+  # Country Borders
+  borders: [String]
+  # Country Native Name
+  nativeName: String
+  # Country Numeric Code
+  numericCode: Int
+  # Country Cioc
+  cioc: String
+  # Country Flag
+  flag: String
+  # Country Currencies
+  currencies: [Currency]
+  # Country Languages
+  languages: [Language]
+  # Country Weather
+  weather( filter: WeatherFilter ): Weather
+}
+
+# Weather
+type Weather {
+  # Weather Id
+  id: ID!
+  # Weather Name
+  name: String
+  # Weather Cod
+  cod: Int
+  # Weather Coord
+  coord: Coordinate
+  # Weather Base
+  base: String
+  # Weather Visibility
+  visibility: Int
+  # Weather Main
+  main: Main
+  # Weather Wind
+  wind: Wind
+  # Weather Clouds
+  clouds: Clouds
+  # Weather Sys
+  sys: Sys
+  # Weather Dt
+  dt: Int
+}
+
+# Main
+type Main {
+  # Weather Main Temp
+  temp: Float
+  # Weather Main Pressure
+  pressure: Float
+  # Weather Main humidity
+  humidity: Float
+  # Weather Main Temp Min
+  temp_min: Float
+  # Weather Main Temp Max
+  temp_max: Float
+}
+
+# Weather Sys
+type Sys {
+  # Weather Sys Type
+  type: Int
+  # Weather Sys Id
+  id: Int
+  # Weather Sys Message
+  message: Float
+  # Weather Sys Country
+  country: String
+  # Weather Sys Sunrise
+  sunrise: Int
+  # Weather Sys Sunset
+  sunset: Int
+}
+
+# Coordinate
+type Coordinate {
+  #Weather Coord Lon
+  lon: Float
+  #Weather Coord Lat
+  lat: Float
+}
+
+# Weather Wind
+type Wind {
+  # Weather Wind Speed
+  speed: Float
+  # Weather Wind Deg
+  deg: Float
+}
+
+# Rain
+type Rain {
+  threeH: Int
+}
+
+# Clouds
+type Clouds {
+  all: Int
+}
+
+# Currency
+type Currency {
+  # Currency Code
+  code: String
+  # Currency Name
+  name: String
+  # Currency Symbol
+  symbol: String
+}
+
+
+# Language
+type Language {
+  # Language iso639_1
+  iso639_1: String
+  # Language iso639_2
+  iso639_2: String
+  # Language name
+  name: String
+  # Language Native Name
+  nativeName: String
+}
+
+type ConvertedCurrency {
+  timestamp: Int!
+
+  rate: Float!
+
+  date: Date!
+
+  result: Float!
+}
+
+type Query {
+  weather(
+    input: WeatherInput!
+  ): Weather!
+
+  country(
+    input: CountryInput!
+  ): Country!
+
+  convertedCurrency(
+    input: ConvertInput!
+  ): ConvertedCurrency!
+}
+
+# WeatherFilter
+input WeatherFilter {
+    # WeatherInput City Name
+    cityName: String
+}
+
+# CountryInput
+input CountryInput {
+  # Name
+  name: String
+  # Fullname
+  fullName: String
+  # Alpha code
+  alphaCode: String
+}
+
+# Coordinate
+input CoordinateInput {
+  lng: Int
+
+  lat: Int
+}
+
+input WeatherInput {
+  # City name
+  cityName: String
+
+  # City ID
+  cityId: Int
+
+  # Geographic Coordinates
+  coordinate: CoordinateInput
+
+  # ZipCode
+  zip: String
+}
+
+input ConvertInput {
+  # Convert symbol from
+  from: String!
+
+  # Convert symbol to
+  to: String!
+
+  # Amount
+  amount: Float!
+}
+
+schema {
+  query: Query
+  # mutation: Mutation
+}
